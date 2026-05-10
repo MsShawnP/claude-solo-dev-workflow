@@ -1,7 +1,7 @@
 # Workflow Setup Checklist
 
-This is what you do manually for each new project. The files in this
-package are what you reference / copy from.
+This is what you do for each new project. Most of the setup is
+automated by the `/init` slash command in Claude Code.
 
 ---
 
@@ -13,7 +13,7 @@ package are what you reference / copy from.
 
 - [ ] Create global `~/.claude/CLAUDE.md`
   - Personal preferences (communication style, no preamble, etc.)
-  - R/Quarto conventions you always want
+  - Conventions you always want (language, framework defaults)
   - The four measurable rules (don't guess, no speculative
     abstractions, tell me what I need to hear, flag vague rules)
   - Applies to every Code session on your machine
@@ -22,10 +22,8 @@ package are what you reference / copy from.
   - Suggested: `~/notes/workflow-package/` or similar
   - This is your reference library — never edit the templates here,
     copy them into projects and edit the copies
-
-- [ ] Tag the final state of the Cinderhaven Audit repo
-  - `git tag v1.0-shipped` (or whatever name fits)
-  - `git push --tags` if you want it on the remote
+  - `/init` will find it automatically in `~/notes/`, `~/repos/`,
+    or `~/` — or clone it from GitHub if not found
 
 ---
 
@@ -42,38 +40,29 @@ package are what you reference / copy from.
 - [ ] This output becomes the starting content for PLAN.md and
       CLAUDE.md
 
-### Phase 2: Create the repo
+### Phase 2: Scaffold the project with `/init`
 
-- [ ] Create new repo (locally and on GitHub)
-- [ ] Decide public vs. private
-- [ ] Create `.gitignore` (exclude rendered output, _freeze/,
-      .Rproj.user/, renv/library/, .env, *.db, large files, client
-      data)
-- [ ] Copy the five .md templates from `templates/` into repo root:
-  - CLAUDE.md
-  - DECISIONS.md
-  - HANDOFF.md
-  - PLAN.md
-  - FAILURES.md
-- [ ] Fill in the bracketed [PROJECT NAME] and [BUSINESS QUESTION]
-      sections in each
-- [ ] Fill in PLAN.md with the first arc based on the 95% confidence
-      conversation
+- [ ] Create and `cd` into your project directory
+- [ ] `git init` (if not already a repo)
+- [ ] Open Claude Code and run:
+      `/init Project Name | One-sentence business question`
+- [ ] `/init` handles:
+  - Copying the five .md templates (CLAUDE.md, DECISIONS.md,
+    HANDOFF.md, PLAN.md, FAILURES.md) into the repo root
+  - Replacing `[PROJECT NAME]` in all templates
+  - Setting the business question in CLAUDE.md
+  - Creating `.claude/commands/` with log.md, wrap.md, and init.md
+  - Creating .gitignore (if none exists)
+  - Initial commit
 
-### Phase 3: Set up slash commands
+After `/init` finishes:
 
-- [ ] Create `.claude/commands/` directory in the repo
-- [ ] Copy `slash-commands/log.md` to `.claude/commands/log.md`
-- [ ] Copy `slash-commands/wrap.md` to `.claude/commands/wrap.md`
+- [ ] Fill in CLAUDE.md — stack, voice, domain context
+- [ ] Fill in PLAN.md — first arc goal, tasks, definition of done
+- [ ] Push to GitHub when ready (`git remote add origin ...` then
+      `git push -u origin main`)
 
-### Phase 4: First commit
-
-- [ ] `git add -A`
-- [ ] `git commit -m "chore: initial project setup with workflow files"`
-- [ ] `git push`
-- [ ] Tag the initial state: `git tag v0.1-foundation`
-
-### Phase 5: Create the chat project
+### Phase 3: Create the chat project (if using claude.ai chat)
 
 - [ ] In claude.ai: New Project → name it
 - [ ] Open `reference/chat-project-instructions.md`
@@ -85,9 +74,9 @@ package are what you reference / copy from.
 - [ ] Test: open a chat in the project, ask "what is this project
       about" — confirm it reads from the files correctly
 
-### Phase 6: Test the loop
+### Phase 4: Test the loop
 
-- [ ] Open a fresh Claude Code session in VS Code
+- [ ] Open a fresh Claude Code session
 - [ ] Confirm Code reads CLAUDE.md automatically at session start
 - [ ] Make a tiny change (add a comment somewhere)
 - [ ] Run `/log` — confirm HANDOFF.md updated and commit happened
@@ -102,7 +91,7 @@ package are what you reference / copy from.
 
 - Run Phase 1 separately for each project (different chats, different
   business questions)
-- Run Phases 2-6 separately for each project (separate repos, separate
+- Run Phases 2-4 separately for each project (separate repos, separate
   chat projects)
 - The one-time setup only happens once
 
@@ -132,6 +121,7 @@ workflow-package/
 │   ├── PLAN.md                         (current work arc)
 │   └── FAILURES.md                     (things that didn't work)
 ├── slash-commands/
+│   ├── init.md                         (/init command - project setup)
 │   ├── log.md                          (/log command)
 │   └── wrap.md                         (/wrap command)
 └── reference/
