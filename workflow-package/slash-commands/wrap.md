@@ -147,3 +147,26 @@ Do not create the tag automatically. Suggest it; let the user decide.
 - Do not push to remote. Local commit only.
 - If git operations fail, stop and report the error. Do not attempt
   to fix automatically.
+
+## Step 8: Next session preview
+
+After the commit, print a short "when you come back" note:
+
+```
+---------------------------------------------------
+SESSION CLOSED
+
+When you open Claude Code next time, I'll read your
+files and pick up from: [Tomorrow's starting point]
+
+Reminder: type / to see your commands.
+  /log      — save a checkpoint while working
+  /improve  — review and improve the project
+  /wrap     — end a session (what you just ran)
+  /commands — full command list
+---------------------------------------------------
+```
+
+If the project is due for a /improve review (check the Improvement
+History in PLAN.md), add: "This project is due for a review —
+consider running /improve next session."

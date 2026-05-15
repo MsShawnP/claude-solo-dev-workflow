@@ -16,6 +16,13 @@ The original workflow for solo portfolio projects. Emphasizes:
 
 **Best for:** Getting started with structured Claude Code development. Lightweight, no agent orchestration.
 
+**Commands:**
+- `/init` — Scaffold a new project with all workflow files and a guided "what to do next" walkthrough
+- `/log` — Save a checkpoint (what changed, what's next)
+- `/wrap` — End-of-session protocol (captures everything for next session)
+- `/improve` — Review and improve an existing project (audit + guided fixes + improvement tracking)
+- `/add-workflow` — Retrofit workflow files onto an existing project
+
 **Setup:** See `workflow-package/README.md`
 
 ---

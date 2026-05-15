@@ -66,6 +66,8 @@ Copy from the workflow-package `slash-commands/` directory:
 
 - `log.md` → `.claude/commands/log.md`
 - `wrap.md` → `.claude/commands/wrap.md`
+- `improve.md` → `.claude/commands/improve.md`
+- `commands.md` → `.claude/commands/commands.md`
 
 Also copy this file (`init.md`) into `.claude/commands/init.md` so
 future projects can be initialized the same way.
@@ -125,22 +127,99 @@ After setup is complete, print:
 Project initialized: [PROJECT_NAME]
 
 Files created:
-  CLAUDE.md          — project rules and context (fill in stack, voice, domain)
+  CLAUDE.md          — project rules and context
   DECISIONS.md       — durable choices log
   HANDOFF.md         — session state log
-  PLAN.md            — current work arc (fill in first arc tasks)
+  PLAN.md            — current work arc
   FAILURES.md        — things that didn't work
   .claude/commands/
-    log.md           — /log slash command
-    wrap.md          — /wrap slash command
-    init.md          — /init slash command (this file)
+    log.md           — /log: save a checkpoint
+    wrap.md          — /wrap: end-of-session protocol
+    improve.md       — /improve: review and improve the project
+    commands.md      — /commands: show all available commands
+    init.md          — /init: this command
+```
 
-Next steps:
-  1. Fill in CLAUDE.md — stack, voice, domain context
-  2. Fill in PLAN.md — first arc goal, tasks, definition of done
-  3. If using claude.ai chat project: create it, paste instructions
-     from reference/chat-project-instructions.md, upload the 5 .md files
-  4. Start building
+Then print the next steps guide below. This is the most important
+part — the user may be new to development, so be explicit about
+what each step is, why it matters, and exactly what to do.
+
+```
+---------------------------------------------------
+WHAT TO DO NEXT (in order)
+---------------------------------------------------
+
+STEP 1: Fill in CLAUDE.md (do this now, takes 5 minutes)
+
+  Open CLAUDE.md and fill in the bracketed sections:
+  - "What this project is" — write one paragraph about what
+    you're building and who it's for
+  - "Stack and tools" — what language, what libraries, what
+    database (if any)
+  - "Voice and standards" — how should written output sound?
+    (the default is fine to start with)
+
+  WHY: This is the file Claude reads at the start of every
+  session. The more specific it is, the better Claude
+  understands your project. A vague CLAUDE.md means Claude
+  will ask you the same questions every time.
+
+STEP 2: Write your first plan in PLAN.md (do this now)
+
+  Open PLAN.md and fill in:
+  - Goal: what does "done" look like for your first chunk of
+    work? Keep it small — something you could finish in 1-3
+    sessions.
+  - Tasks: break the goal into specific steps. Each one
+    should be something you could finish in one sitting.
+  - Definition of done: how will you know it's actually done?
+    Not "it works" — what specifically works?
+
+  WHY: Without a plan, sessions drift. The plan keeps both
+  you and Claude focused on the same goal.
+
+STEP 3: Start building (you're ready)
+
+  You can start coding now. As you work:
+
+  - Run /log after each meaningful change (bug fixed,
+    feature added, decision made). This saves a checkpoint
+    you can come back to.
+  - Run /wrap when you're done for the day. This captures
+    everything that happened so your next session can pick
+    up where you left off.
+  - Run /improve anytime you want to step back and make the
+    project better — it audits your code and workflow files,
+    then walks you through fixing what matters.
+
+---------------------------------------------------
+OPTIONAL: Helpful skills you can use anytime
+---------------------------------------------------
+
+If you have the workflow skills installed, these can help
+at any point:
+
+  /clarify    — Claude interviews you until it's 95% sure
+                what you actually want. Great when you have
+                a fuzzy idea but aren't sure how to scope it.
+
+  /ce:brainstorm — Explore what to build through back-and-
+                forth conversation. Good before you commit
+                to an approach.
+
+  /ce:plan    — Creates a detailed implementation plan with
+                research. Use after you know WHAT to build
+                but want help figuring out HOW.
+
+  /ce:work    — Executes a plan efficiently. Use when you
+                have a plan and want to get it done.
+
+  /ce:review  — Multi-reviewer code review. Run before you
+                consider something done.
+
+You don't need to use all of these. Start with /log and
+/wrap — they're the foundation. Add others when they'd help.
+---------------------------------------------------
 ```
 
 ## Rules

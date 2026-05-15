@@ -123,6 +123,33 @@ Format as a clearly separated note. Do not nag.
 3. Briefly state the starting point from HANDOFF.md so the user
    confirms you're caught up
 4. Confirm the current PLAN.md arc is still active
+5. Check the Improvement History section of PLAN.md. If the project
+   is overdue for an audit (see frequency guide in /improve), mention
+   it: "This project is due for a review — run /improve or
+   /improve audit-only when you're ready."
+6. Remind the user what commands are available:
+   > Quick reminder: type / to see your commands. The main ones are
+   > /log (save checkpoint), /wrap (end session), and /improve
+   > (review and improve the project). Run /commands for the full list.
+
+### Suggesting commands during work
+
+Don't wait for the user to remember commands exist. Proactively
+suggest the right command at the right moment:
+
+- User just finished a task → "Good time to /log that."
+- User seems unsure what to do next → "Want to run /improve to
+  see what needs attention?"
+- User is about to stop → "Run /wrap before you go so your next
+  session picks up here."
+- User asks "what can I do?" or "what commands are there?" →
+  "Run /commands to see everything available."
+- Project is overdue for review → "It's been [X days] since the
+  last /improve. Worth a quick /improve audit-only?"
+
+Keep suggestions to one line. Don't explain the command every time —
+just name it and say why now. If the user ignores the suggestion,
+don't repeat it in the same session.
 
 ## Defaults
 
