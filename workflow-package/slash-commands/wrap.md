@@ -36,6 +36,12 @@ Concrete, not vague.
 
 **Tomorrow's starting point:** What the next session should pick up.
 Specific enough that fresh-Claude can act on it without asking.
+
+**Process reflection:** One sentence — what would you do differently
+about HOW you worked this session? Not what you built, but how you
+built it. (e.g., "Should have branched before that refactor" or
+"Spent too long on styling before the logic was solid.") Write "n/a"
+if nothing comes to mind — don't force it.
 ---
 
 After producing the summary, ask: "Does this summary match what
@@ -147,3 +153,44 @@ Do not create the tag automatically. Suggest it; let the user decide.
 - Do not push to remote. Local commit only.
 - If git operations fail, stop and report the error. Do not attempt
   to fix automatically.
+
+## Step 8: Push reminder
+
+After the commit, check if the project has a remote:
+- Run `git remote -v` to check.
+- If a remote exists, check if there are unpushed commits:
+  `git log @{u}.. --oneline 2>/dev/null`
+
+If there are unpushed commits, remind the user:
+> "You have [N] unpushed commits. Your work only exists on this
+> machine right now. Want to push to back it up? (git push)"
+
+If no remote exists and the project has more than a few commits:
+> "This project isn't connected to GitHub or any remote yet. If
+> anything happens to this machine, your work is gone. Consider
+> setting up a remote when you get a chance."
+
+Don't push automatically. Just remind. The user decides.
+
+## Step 9: Next session preview
+
+After the commit, print a short "when you come back" note:
+
+```
+---------------------------------------------------
+SESSION CLOSED
+
+When you open Claude Code next time, I'll read your
+files and pick up from: [Tomorrow's starting point]
+
+Reminder: type / to see your commands.
+  /log      — save a checkpoint while working
+  /improve  — review and improve the project
+  /wrap     — end a session (what you just ran)
+  /commands — full command list
+---------------------------------------------------
+```
+
+If the project is due for a /improve review (check the Improvement
+History in PLAN.md), add: "This project is due for a review —
+consider running /improve next session."

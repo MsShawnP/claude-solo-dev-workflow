@@ -53,3 +53,22 @@ Rules for the commit:
 - If the commit fails, report the exact error and stop. Do not
   attempt to fix it automatically.
 - Do not amend previous commits. Each /log is its own commit.
+
+## Step 3: Suggest what's next
+
+After the commit (or skip), add a one-line suggestion based on
+context:
+
+- If the user seems to be wrapping up → "Ready to stop? Run /wrap
+  to save your session state."
+- If there's more work in PLAN.md → "Checkpoint saved. Next task
+  in the plan: [task name]."
+- If it's been a while since the last /improve → "Checkpoint saved.
+  This project is due for a review — /improve audit-only when
+  you're ready."
+- Otherwise → "Checkpoint saved. Keep going."
+
+Additionally, if the project has a remote and there are 5+ unpushed
+commits, add: "You have [N] unpushed commits — consider pushing to
+back up your work." Only mention this once per session, not on every
+/log.

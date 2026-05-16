@@ -76,6 +76,34 @@ FAILURES.md as relevant.
 - Do not refactor unrelated code unprompted.
 - Do not rename things unless asked.
 
+### Git branching
+
+- Before risky or experimental changes, suggest creating a branch:
+  > "This is a significant change. Want to work on a branch so we
+  > can easily undo it if it doesn't work out?"
+- What counts as "risky": changing how the project is structured,
+  trying a new library, rewriting a working feature, anything where
+  you'd say "I'm not sure this will work."
+- Keep it simple: `git checkout -b experiment/short-description`
+  before the change, merge back to main if it works.
+- Don't require branches for small, safe changes. This is about
+  protecting against losing work, not adding process.
+
+### Scope creep detection
+
+- Periodically check whether the current work matches PLAN.md.
+  If the user has been building something not in the plan for more
+  than ~15 minutes, flag it:
+  > "We've been working on [thing] but it's not in the current plan.
+  > Want to add it to PLAN.md, or should we finish the planned work
+  > first?"
+- This is a gentle nudge, not a block. The user may have a good
+  reason. But new developers often drift without realizing it, and
+  drift is how projects never finish.
+- Also flag if the user keeps adding tasks to PLAN.md without
+  completing existing ones — the plan is growing instead of
+  shrinking.
+
 ## Working with PLAN.md
 
 PLAN.md defines the current arc of work. Read it at session start.
@@ -123,6 +151,40 @@ Format as a clearly separated note. Do not nag.
 3. Briefly state the starting point from HANDOFF.md so the user
    confirms you're caught up
 4. Confirm the current PLAN.md arc is still active
+5. Check the Improvement History section of PLAN.md. If the project
+   is overdue for an audit (see frequency guide in /improve), mention
+   it: "This project is due for a review — run /improve or
+   /improve audit-only when you're ready."
+6. Remind the user what commands are available:
+   > Quick reminder: type / to see your commands. The main ones are
+   > /log (save checkpoint), /wrap (end session), and /improve
+   > (review and improve the project). Run /commands for the full list.
+
+### Suggesting commands during work
+
+Don't wait for the user to remember commands exist. Proactively
+suggest the right command at the right moment:
+
+- User just finished a task → "Good time to /log that."
+- User seems unsure what to do next → "Want to run /improve to
+  see what needs attention?"
+- User is about to stop → "Run /wrap before you go so your next
+  session picks up here."
+- User asks "what can I do?" or "what commands are there?" →
+  "Run /commands to see everything available."
+- Project is overdue for review → "It's been [X days] since the
+  last /improve. Worth a quick /improve audit-only?"
+- User just built a UI feature or fixed something visible →
+  "Want to run /qa to test that in a browser?"
+- User is starting a new project and hasn't challenged the idea →
+  "Before building, run /office-hours to stress-test the idea."
+- User has a plan but hasn't reviewed it → "Run /plan-ceo-review
+  for the product check, then /plan-eng-review for the technical
+  check."
+
+Keep suggestions to one line. Don't explain the command every time —
+just name it and say why now. If the user ignores the suggestion,
+don't repeat it in the same session.
 
 ## Defaults
 

@@ -57,3 +57,13 @@ the active plan.
 ### [Date completed] — [Goal]
 - Outcome: [what shipped or what was decided]
 - Tag: [git tag if one was created]
+
+---
+
+## Improvement history
+
+Track when this project was reviewed and improved via /improve.
+Each entry records what was found, what was fixed, and when to
+check again.
+
+<!-- Entries are added by /improve — don't delete this section -->
