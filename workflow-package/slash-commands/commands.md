@@ -53,6 +53,54 @@ ANYTIME
   /commands      This card. Shows what's available.
 
 ---------------------------------------------------
+FULL WORKFLOW ORDER — new projects
+---------------------------------------------------
+
+Phase 1 — Build the right thing
+   1. /clarify            Interview until the idea is clear
+   2. /office-hours       Challenge the idea, find problems
+   3. /plan-ceo-review    Product check: worth building?
+   4. /plan-eng-review    Technical check: will it work?
+
+Phase 2 — Build it right
+   5. /init               Scaffold project files
+   6. /ce:brainstorm      Spec out the approach
+   7. /ce:plan            Detailed implementation plan
+   8. /ce:work            Execute the plan
+   9. /ce:review          Multi-reviewer code review
+  10. /qa                 Test it in a browser
+
+Phase 3 — Learn
+  11. /ce:compound        Capture learnings for future sessions
+  12. Ship
+
+While working, repeat as needed:
+      /log               After each meaningful change
+      /wrap              When done for the day
+
+---------------------------------------------------
+FULL WORKFLOW ORDER — improving existing projects
+---------------------------------------------------
+
+   1. /improve            Audit + fix (or /improve audit-only)
+   2. /qa                 Test the fixes in a browser
+   3. /wrap               End the session
+
+---------------------------------------------------
+TIER SHORTCUT — you don't always need all 12 steps
+---------------------------------------------------
+
+  Quick  (throwaway, < 1 day)
+         /clarify only, then build
+
+  Medium (feature, weekend project)
+         Skip steps 2-4. Start at /clarify, then
+         /init → /ce:brainstorm → /ce:plan → build.
+
+  Heavy  (product, maintained > 3 months)
+         All 12 steps.
+
+---------------------------------------------------
 TIP: Type / and you'll see a list of all commands.
      Arrow-key to the one you want and hit Enter.
 ---------------------------------------------------
