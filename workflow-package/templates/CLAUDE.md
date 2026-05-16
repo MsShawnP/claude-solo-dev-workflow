@@ -10,11 +10,11 @@ write this sentence cleanly, the project isn't scoped enough yet.]
 
 ## Stack and tools
 
-- Primary language: [R / Python / etc.]
-- Key packages/libraries: [list]
-- Database: [if applicable]
-- Entry point: [run_all.R or equivalent]
-- Rendering: [Quarto / etc.]
+- Primary language: [your language — e.g., JavaScript, Python, Ruby, etc.]
+- Key packages/libraries: [list the main ones you're using]
+- Database: [if applicable — or remove this line]
+- Entry point: [the main file that starts your project — e.g., index.js, app.py, main.rb]
+- Other tools: [anything else relevant — framework, hosting, etc.]
 
 ## Project files
 
@@ -29,13 +29,18 @@ FAILURES.md as relevant.
 
 ## Voice and standards
 
-- Economist style for written deliverables: sober, declarative,
-  data-forward
+- [Describe how written output should sound — e.g., "casual and
+  clear", "professional but approachable", "technical and precise"]
 - No marketing voice or consultant filler ("leverage," "synergy,"
   "best-in-class," "unlock," "drive value")
 - No hedging that softens a real finding
+
+<!-- OPTIONAL: Data science / reporting projects — uncomment if relevant:
+- Economist style for written deliverables: sober, declarative,
+  data-forward
 - Charts must be readable by non-data-scientist, non-researcher
   audiences
+-->
 
 ## Rules
 
@@ -67,10 +72,13 @@ FAILURES.md as relevant.
 
 ### How to work the project
 
-- Work in vertical slices, not horizontal phases. Build one section
-  end-to-end (data → analysis → visualization → prose) before moving
-  to the next. Visualizations should be reviewed and adjusted in their
-  own slice, not deferred to a polish phase at the end.
+- Work in vertical slices, not horizontal phases. Build one feature
+  end-to-end (working from input to output) before moving to the
+  next. Don't build all the backend, then all the frontend — build
+  one complete piece at a time.
+- When a feature is working, suggest a simple test to verify it stays
+  working: "This works now — want to add a quick test so it doesn't
+  break later?" Don't force testing, but make it easy to say yes.
 - Do not start tasks outside the current PLAN.md arc without flagging
   it to the user first.
 - Do not refactor unrelated code unprompted.
