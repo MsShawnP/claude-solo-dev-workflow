@@ -112,7 +112,29 @@ mkdir -p ~/.claude/commands
 cp ~/projects/reference/claude-solo-dev-workflow/workflow-package/slash-commands/*.md ~/.claude/commands/
 ```
 
-### Step 3: Verify it worked
+### Step 3: Install the plugins
+
+The workflow uses two plugins that add powerful commands. Install
+them from inside Claude Code:
+
+1. Open your terminal and type `claude` to start Claude Code.
+2. Type `/plugin` — this opens the plugin manager.
+3. Go to the **Marketplaces** tab and add:
+   ```
+   EveryInc/compound-engineering-plugin
+   ```
+4. Go to the **Discover** tab and install:
+   - **compound-engineering** — gives you `/ce:brainstorm`,
+     `/ce:plan`, `/ce:work`, `/ce:review`, `/ce:compound`
+     (the build-phase commands)
+   - **gstack** — gives you `/office-hours`, `/plan-ceo-review`,
+     `/plan-eng-review`, `/qa` (review gates and browser testing)
+5. Type `/reload-plugins` to activate them.
+
+Don't worry about memorizing these commands — Claude will suggest
+them at the right time. You just need to install the plugins once.
+
+### Step 4: Verify it worked
 
 Open your terminal, navigate to any folder, and type:
 ```
