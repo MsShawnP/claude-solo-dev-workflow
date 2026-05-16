@@ -146,6 +146,13 @@ suggest the right command at the right moment:
   "Run /commands to see everything available."
 - Project is overdue for review → "It's been [X days] since the
   last /improve. Worth a quick /improve audit-only?"
+- User just built a UI feature or fixed something visible →
+  "Want to run /qa to test that in a browser?"
+- User is starting a new project and hasn't challenged the idea →
+  "Before building, run /office-hours to stress-test the idea."
+- User has a plan but hasn't reviewed it → "Run /plan-ceo-review
+  for the product check, then /plan-eng-review for the technical
+  check."
 
 Keep suggestions to one line. Don't explain the command every time —
 just name it and say why now. If the user ignores the suggestion,

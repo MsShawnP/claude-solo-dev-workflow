@@ -178,7 +178,29 @@ STEP 2: Write your first plan in PLAN.md (do this now)
   WHY: Without a plan, sessions drift. The plan keeps both
   you and Claude focused on the same goal.
 
-STEP 3: Start building (you're ready)
+STEP 3: Challenge the idea (recommended, takes 10 min)
+
+  Before you start building, stress-test the idea:
+
+  /office-hours   — A critical-friend conversation that pokes
+                    holes in your concept. Finds problems now,
+                    not after you've built the wrong thing.
+
+  /plan-ceo-review — Product gate. Checks: is this the right
+                    thing to build? Is the scope right? Does
+                    the plan make a clear case for why it
+                    matters?
+
+  /plan-eng-review — Architecture gate. Checks: will the
+                    technical approach actually work? What's
+                    going to break? What's missing?
+
+  WHY: These take 10 minutes total and can save you days of
+  building something that doesn't hold up. You can skip them
+  for quick/throwaway projects, but for anything you'll
+  maintain, they're worth it.
+
+STEP 4: Start building (you're ready)
 
   You can start coding now. As you work:
 
@@ -191,13 +213,12 @@ STEP 3: Start building (you're ready)
   - Run /improve anytime you want to step back and make the
     project better — it audits your code and workflow files,
     then walks you through fixing what matters.
+  - Run /qa after building a feature to test it in a real
+    browser and catch things that look wrong.
 
 ---------------------------------------------------
-OPTIONAL: Helpful skills you can use anytime
+OPTIONAL: More skills you can use anytime
 ---------------------------------------------------
-
-If you have the workflow skills installed, these can help
-at any point:
 
   /clarify    — Claude interviews you until it's 95% sure
                 what you actually want. Great when you have
@@ -216,6 +237,8 @@ at any point:
 
   /ce:review  — Multi-reviewer code review. Run before you
                 consider something done.
+
+  /commands   — Quick reference card with all commands.
 
 You don't need to use all of these. Start with /log and
 /wrap — they're the foundation. Add others when they'd help.

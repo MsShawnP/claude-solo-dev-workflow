@@ -13,32 +13,44 @@ Type / in the chat to see all available commands.
 These are the workflow commands and when to use them:
 
 DURING SETUP
-  /init         Set up a new project with all workflow files.
-                Use once, at the very beginning.
+  /init          Set up a new project with all workflow files.
+                 Use once, at the very beginning.
 
   /add-workflow  Add workflow files to a project that already
-                exists. Use when you have code but no PLAN.md,
-                HANDOFF.md, etc.
+                 exists. Use when you have code but no PLAN.md,
+                 HANDOFF.md, etc.
+
+BEFORE BUILDING (challenge the idea first)
+  /office-hours  Critical-friend conversation. Pokes holes in
+                 your idea so you find problems before building.
+
+  /plan-ceo-review  Product gate. Is this the right thing to
+                 build? Is the scope right? Does it matter?
+
+  /plan-eng-review  Architecture gate. Will the technical
+                 approach work? What's going to break?
 
 WHILE WORKING
-  /log          Save a checkpoint. Run after each meaningful
-                change — bug fixed, feature added, decision
-                made. Quick, takes 10 seconds.
+  /log           Save a checkpoint. Run after each meaningful
+                 change — bug fixed, feature added, decision
+                 made. Quick, takes 10 seconds.
 
-  /improve      Review and improve the project. Audits your
-                code, tests, security, and workflow files,
-                then walks you through fixing what matters.
-                Also works as: /improve audit-only (just the
-                health check, no fixes).
+  /improve       Review and improve the project. Audits your
+                 code, tests, security, and workflow files,
+                 then walks you through fixing what matters.
+                 Also: /improve audit-only (health check only).
+
+  /qa            Test the project in a real browser. Checks
+                 that things actually work, not just compile.
+                 Run after building or fixing something.
 
 WHEN STOPPING
-  /wrap         End-of-session protocol. Captures everything
-                that happened so your next session picks up
-                right where you left off. Run this before you
-                close Claude Code.
+  /wrap          End-of-session protocol. Captures everything
+                 that happened so your next session picks up
+                 right where you left off.
 
 ANYTIME
-  /commands     This card. Shows what's available.
+  /commands      This card. Shows what's available.
 
 ---------------------------------------------------
 TIP: Type / and you'll see a list of all commands.

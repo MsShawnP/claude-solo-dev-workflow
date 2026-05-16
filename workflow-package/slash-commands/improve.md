@@ -254,6 +254,11 @@ If something turns out to be bigger than expected, flag it:
 Do not rush through everything. One item done well beats five items
 half-done.
 
+After all improvements are complete, if the project has any UI or
+browser-visible output, suggest:
+> "Want to run /qa to test these changes in a browser before we
+> wrap up?"
+
 ## Step 7: Log the audit/improvement
 
 Whether this was audit-only or a full improvement pass, add an entry
