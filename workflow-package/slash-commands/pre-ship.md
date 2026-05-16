@@ -86,7 +86,15 @@ Beyond /qa's browser testing, check the full pipeline:
   Do API endpoints respond?
 - If it's a script/tool: does it run with expected input?
   Does it handle missing input gracefully?
-- If it has tests: do they pass?
+
+### 3a. Tests
+- If tests exist: do they all pass? Run them and report results.
+- If no tests exist: flag it as a suggestion (not a blocker):
+  > "This project has no tests. Tests catch bugs before your users
+  > do. Consider adding at least one test for the main thing your
+  > project does. You can ask Claude to help write them."
+- Never block shipping solely because tests don't exist — but
+  always mention it so the user is aware.
 
 ## Step 4: Is it pushed to a remote?
 

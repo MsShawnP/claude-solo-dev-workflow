@@ -1,7 +1,19 @@
 # Workflow Package
 
-Commands, templates, and reference materials for running projects
-with structured state management, review gates, and decision tracking.
+**The problem nobody else solves:** You close your laptop, come back
+tomorrow, and have no idea where you were or what you were doing.
+This workflow fixes that — and a lot more.
+
+It gives you a structured process for building software: what to do
+first, when to stop and review, how to capture decisions and failures
+so you don't repeat them, and how to hand off context between sessions
+so you never lose your thread.
+
+**New to development?** Start with [START-HERE.md](START-HERE.md) —
+it walks you through everything from installing your tools to running
+your first project.
+
+**Already have Claude Code running?** Keep reading below.
 
 ---
 
@@ -135,17 +147,34 @@ You don't have to remember what to do — the workflow prompts you:
 ### One-time (do once)
 
 1. Clone this repo somewhere accessible:
+
+   **Mac/Linux:**
    ```
    git clone https://github.com/MsShawnP/claude-solo-dev-workflow.git ~/projects/reference/claude-solo-dev-workflow
    ```
 
+   **Windows (PowerShell):**
+   ```
+   git clone https://github.com/MsShawnP/claude-solo-dev-workflow.git "$env:USERPROFILE\projects\reference\claude-solo-dev-workflow"
+   ```
+
 2. Copy the slash commands to your global Claude commands:
+
+   **Mac/Linux:**
    ```
    cp workflow-package/slash-commands/*.md ~/.claude/commands/
    ```
 
-3. Set up your global `~/.claude/CLAUDE.md` with personal preferences
+   **Windows (PowerShell):**
+   ```
+   Copy-Item workflow-package\slash-commands\*.md "$env:USERPROFILE\.claude\commands\"
+   ```
+
+3. Set up your global CLAUDE.md with personal preferences
    and the four measurable rules.
+
+   - **Mac/Linux:** `~/.claude/CLAUDE.md`
+   - **Windows:** `%USERPROFILE%\.claude\CLAUDE.md`
 
 ### Per project
 

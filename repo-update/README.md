@@ -2,6 +2,14 @@
 
 A workflow for solo developers using Claude Code and Claude chat together. Templates, slash commands, agents, and reference materials for running projects with structured state management, review gates, and decision tracking.
 
+## Which version should I use?
+
+**Start with v1** (`workflow-package/`). It's simpler, requires no agents or advanced features, and covers the full dev cycle. If you're new to development or Claude Code, this is the one.
+
+**Use v2** (`v2-phase-gated-agent-workflow/`) only if you're doing data science, analytics, or reporting projects AND you're already comfortable with Claude Code's subagent system. It adds automated review phases but is more complex to run.
+
+---
+
 ## Versions
 
 ### v1 — Original Workflow (`workflow-package/`)

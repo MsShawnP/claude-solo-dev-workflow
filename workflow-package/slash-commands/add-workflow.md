@@ -32,7 +32,11 @@ Default to skip if user gives no answer — never destroy existing content silen
 
 ## Step 4 — Create files from templates
 
-Copy from `~/projects/reference/claude-solo-dev-workflow/workflow-package/templates/`:
+Copy from the workflow-package templates directory:
+- Mac/Linux: `~/projects/reference/claude-solo-dev-workflow/workflow-package/templates/`
+- Windows: `%USERPROFILE%\projects\reference\claude-solo-dev-workflow\workflow-package\templates\`
+
+Files to copy:
 - `CLAUDE.md` → fill in name, tier, description
 - `PLAN.md`, `HANDOFF.md`, `DECISIONS.md`, `FAILURES.md` as-is
 

@@ -20,13 +20,13 @@ Argument: $ARGUMENTS
    directory?
 2. Check if the workflow-package repo is cloned locally. Look in these
    locations in order:
-   - `~/notes/workflow-package/`
-   - `~/claude-solo-dev-workflow/workflow-package/`
-   - `~/repos/claude-solo-dev-workflow/workflow-package/`
-   If not found, clone it:
-   `git clone https://github.com/MsShawnP/claude-solo-dev-workflow.git /tmp/claude-solo-dev-workflow`
-   and use `/tmp/claude-solo-dev-workflow/workflow-package/` as the
-   source.
+   - `~/projects/reference/claude-solo-dev-workflow/workflow-package/` (Mac/Linux)
+   - `%USERPROFILE%\projects\reference\claude-solo-dev-workflow\workflow-package\` (Windows)
+   - `~/claude-solo-dev-workflow/workflow-package/` (Mac/Linux) or `%USERPROFILE%\claude-solo-dev-workflow\workflow-package\` (Windows)
+   If not found, clone it to a temporary location:
+   - Mac/Linux: `git clone https://github.com/MsShawnP/claude-solo-dev-workflow.git /tmp/claude-solo-dev-workflow`
+   - Windows: `git clone https://github.com/MsShawnP/claude-solo-dev-workflow.git "$env:TEMP\claude-solo-dev-workflow"`
+   and use the `workflow-package/` directory within as the source.
 3. Check if any workflow files already exist (CLAUDE.md, PLAN.md,
    HANDOFF.md, DECISIONS.md, FAILURES.md, .claude/commands/). If
    they do, stop and report what's already there. Do not overwrite
