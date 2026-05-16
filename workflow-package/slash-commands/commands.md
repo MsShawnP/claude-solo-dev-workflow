@@ -44,6 +44,11 @@ WHILE WORKING
                  that things actually work, not just compile.
                  Run after building or fixing something.
 
+  /pre-ship      Pre-ship checklist. Verifies: runs from a
+                 fresh clone, no hardcoded secrets, deps
+                 pinned, README has setup instructions, work
+                 is pushed to a remote. Run before shipping.
+
 WHEN STOPPING
   /wrap          End-of-session protocol. Captures everything
                  that happened so your next session picks up
@@ -70,9 +75,10 @@ Phase 2 — Build it right
    9. /ce:review          Multi-reviewer code review
   10. /qa                 Test it in a browser
 
-Phase 3 — Learn
-  11. /ce:compound        Capture learnings for future sessions
-  12. Ship
+Phase 3 — Finish and learn
+  11. /pre-ship           Verify it works from scratch, no secrets
+  12. /ce:compound        Capture learnings for future sessions
+  13. Ship
 
 While working, repeat as needed:
       /log               After each meaningful change

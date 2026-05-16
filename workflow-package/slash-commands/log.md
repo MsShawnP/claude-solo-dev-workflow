@@ -67,3 +67,8 @@ context:
   This project is due for a review — /improve audit-only when
   you're ready."
 - Otherwise → "Checkpoint saved. Keep going."
+
+Additionally, if the project has a remote and there are 5+ unpushed
+commits, add: "You have [N] unpushed commits — consider pushing to
+back up your work." Only mention this once per session, not on every
+/log.

@@ -76,6 +76,34 @@ FAILURES.md as relevant.
 - Do not refactor unrelated code unprompted.
 - Do not rename things unless asked.
 
+### Git branching
+
+- Before risky or experimental changes, suggest creating a branch:
+  > "This is a significant change. Want to work on a branch so we
+  > can easily undo it if it doesn't work out?"
+- What counts as "risky": changing how the project is structured,
+  trying a new library, rewriting a working feature, anything where
+  you'd say "I'm not sure this will work."
+- Keep it simple: `git checkout -b experiment/short-description`
+  before the change, merge back to main if it works.
+- Don't require branches for small, safe changes. This is about
+  protecting against losing work, not adding process.
+
+### Scope creep detection
+
+- Periodically check whether the current work matches PLAN.md.
+  If the user has been building something not in the plan for more
+  than ~15 minutes, flag it:
+  > "We've been working on [thing] but it's not in the current plan.
+  > Want to add it to PLAN.md, or should we finish the planned work
+  > first?"
+- This is a gentle nudge, not a block. The user may have a good
+  reason. But new developers often drift without realizing it, and
+  drift is how projects never finish.
+- Also flag if the user keeps adding tasks to PLAN.md without
+  completing existing ones — the plan is growing instead of
+  shrinking.
+
 ## Working with PLAN.md
 
 PLAN.md defines the current arc of work. Read it at session start.
