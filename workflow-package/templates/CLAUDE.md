@@ -84,8 +84,15 @@ FAILURES.md as relevant.
 - Do not refactor unrelated code unprompted.
 - Do not rename things unless asked.
 
-### Git branching
+### Git branching and worktrees
 
+- **Work on main branch by default.** Do not create worktrees or
+  separate branches unless the user explicitly asks for one. The
+  overhead of merging back constantly is worse than the safety net
+  of isolation for a solo developer.
+- If you are already in a worktree when a session starts, push the
+  work to main or create a PR to merge it — don't leave work
+  stranded in a worktree.
 - Before risky or experimental changes, suggest creating a branch:
   > "This is a significant change. Want to work on a branch so we
   > can easily undo it if it doesn't work out?"
@@ -152,21 +159,33 @@ Format as a clearly separated note. Do not nag.
 
 ### Session start protocol
 
-1. Read CLAUDE.md, PLAN.md, and HANDOFF.md
-2. If HANDOFF.md's most recent entry is more than 24 hours old AND
+**CRITICAL: Do this BEFORE doing anything else — even before
+responding to the user's first message.** Do not assume no work has
+been done. Do not assume this is a new project. Read the files first.
+
+1. Read CLAUDE.md (this file) — understand project rules
+2. Read PLAN.md — understand current work arc and task list
+3. Read HANDOFF.md — understand where the last session left off
+4. Read DECISIONS.md — understand durable choices already made
+5. Skim FAILURES.md — know what's already been tried and failed
+6. If HANDOFF.md's most recent entry is more than 24 hours old AND
    there are uncommitted changes, flag this — the previous session
    may have ended without /wrap
-3. Briefly state the starting point from HANDOFF.md so the user
-   confirms you're caught up
-4. Confirm the current PLAN.md arc is still active
-5. Check the Improvement History section of PLAN.md. If the project
+7. Briefly state the starting point from HANDOFF.md so the user
+   confirms you're caught up. Example: "Last session ended with
+   [X]. Picking up from [Y]. Sound right?"
+8. Confirm the current PLAN.md arc is still active
+9. Check the Improvement History section of PLAN.md. If the project
    is overdue for an audit (see frequency guide in /improve), mention
    it: "This project is due for a review — run /improve or
    /improve audit-only when you're ready."
-6. Remind the user what commands are available:
-   > Quick reminder: type / to see your commands. The main ones are
-   > /log (save checkpoint), /wrap (end session), and /improve
-   > (review and improve the project). Run /commands for the full list.
+10. Remind the user what commands are available:
+    > Quick reminder: type / to see your commands. The main ones are
+    > /log (save checkpoint), /wrap (end session), and /improve
+    > (review and improve the project). Run /commands for the full list.
+
+**If any of these files don't exist yet, THEN you can assume this is
+a fresh project. But if they exist — read them. No exceptions.**
 
 ### Suggesting commands during work
 
