@@ -69,6 +69,8 @@ Copy from the workflow-package `slash-commands/` directory:
 - `improve.md` → `.claude/commands/improve.md`
 - `commands.md` → `.claude/commands/commands.md`
 - `pre-ship.md` → `.claude/commands/pre-ship.md`
+- `clarify.md` → `.claude/commands/clarify.md`
+- `decompose.md` → `.claude/commands/decompose.md`
 
 Also copy this file (`init.md`) into `.claude/commands/init.md` so
 future projects can be initialized the same way.
