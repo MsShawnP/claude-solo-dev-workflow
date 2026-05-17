@@ -116,7 +116,7 @@ If any tasks in PLAN.md were completed this session, mark them
 complete. If the entire current arc is done, ask the user whether
 to archive it and start a new arc.
 
-## Step 6: Commit
+## Step 6: Commit and push
 
 After all file updates are confirmed:
 
@@ -134,8 +134,16 @@ After all file updates are confirmed:
    permanently captured in git history, searchable via
    `git log --grep=<term>`, even if HANDOFF.md gets rotated.
 
-4. Report back the commit hash, files changed, and the "Next" line
-   so the user can see what's ready for tomorrow.
+4. Push to remote automatically:
+   - Run `git remote -v` to check if a remote exists.
+   - If a remote exists, run `git push`. If on a branch that
+     doesn't have an upstream yet, use `git push -u origin HEAD`.
+   - If no remote exists, skip the push and tell the user:
+     > "Committed locally. No remote configured — your work only
+     > exists on this machine."
+
+5. Report back the commit hash, files changed, push status, and
+   the "Next" line so the user can see what's ready for tomorrow.
 
 ## Step 7: Tag suggestion (if applicable)
 
@@ -150,27 +158,11 @@ Do not create the tag automatically. Suggest it; let the user decide.
   drives everything else.
 - If the user says "skip the summary, just commit," do that — but
   HANDOFF.md still gets a minimal entry.
-- Do not push to remote. Local commit only.
+- Push to remote automatically after commit (handled in Step 6).
 - If git operations fail, stop and report the error. Do not attempt
   to fix automatically.
 
-## Step 8: Push reminder
-
-After the commit, check if the project has a remote:
-- Run `git remote -v` to check.
-- If a remote exists, check if there are unpushed commits:
-  `git log @{u}.. --oneline 2>/dev/null`
-
-If there are unpushed commits, remind the user:
-> "You have [N] unpushed commits. Your work only exists on this
-> machine right now. Want to push to back it up? (git push)"
-
-If no remote exists and the project has more than a few commits:
-> "This project isn't connected to GitHub or any remote yet. If
-> anything happens to this machine, your work is gone. Consider
-> setting up a remote when you get a chance."
-
-Don't push automatically. Just remind. The user decides.
+## Step 8: (Removed — push is now part of Step 6)
 
 ## Step 9: Next session preview
 
