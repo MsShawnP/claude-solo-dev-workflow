@@ -1,10 +1,21 @@
-# claude-solo-dev-workflow
+# claude-solo-dev-workflow — structured solo-dev process for Claude Code and Claude chat
 
-A workflow for solo developers using Claude Code and Claude chat together. Templates, slash commands, agents, and reference materials for running projects with structured state management, review gates, and decision tracking.
+Templates, slash commands, agents, and reference materials for running solo
+projects with structured state management, review gates, and decision
+tracking. Two versions live in this repo: the original file-based workflow
+(v1) and a phase-gated agent workflow (v2).
 
-## Versions
+## Which version should I use?
 
-### v1 — Original Workflow (`workflow-package/`)
+**Start with v1** (`workflow-package/`). It's simpler, requires no agents or
+advanced features, and covers the full dev cycle.
+
+**Use v2** (`repo-update/v2-phase-gated-agent-workflow/`) if you're doing
+data science, analytics, or reporting projects and are comfortable with
+Claude Code's subagent system. It adds automated review phases but is more
+complex to run.
+
+## v1 — Original Workflow (`workflow-package/`)
 
 The original workflow for solo portfolio projects. Emphasizes:
 
@@ -14,33 +25,45 @@ The original workflow for solo portfolio projects. Emphasizes:
 - Vertical slices over horizontal phases
 - Measurable rules over vague guidance
 
-**Best for:** Getting started with structured Claude Code development. Lightweight, no agent orchestration.
+Core commands (full set in `workflow-package/slash-commands/`, which also
+includes `/qa`, `/pre-ship`, `/office-hours`, and plan-review commands):
 
-**Commands:**
-- `/init` — Scaffold a new project with all workflow files and a guided "what to do next" walkthrough
+- `/init` — Scaffold a new project with all workflow files and a guided walkthrough
 - `/log` — Save a checkpoint (what changed, what's next)
 - `/wrap` — End-of-session protocol (captures everything for next session)
-- `/improve` — Review and improve an existing project (audit + guided fixes + improvement tracking)
+- `/improve` — Review and improve an existing project (audit + guided fixes + tracking)
 - `/add-workflow` — Retrofit workflow files onto an existing project
 
-**Setup:** See `workflow-package/README.md`
+**Quick start:** see `workflow-package/README.md` and
+`workflow-package/START-HERE.md` (beginner walkthrough). Setup is copying the
+slash-command Markdown files into `~/.claude/commands/` and the templates
+into your project — no build or install step.
 
----
+## v2 — Phase-Gated Agent Workflow (`repo-update/v2-phase-gated-agent-workflow/`)
 
-### v2 — Phase-Gated Agent Workflow (`v2-phase-gated-agent-workflow/`)
+A phase-gated development workflow using Claude Code's subagent system.
+Specialized agents handle planning, code review, data/analysis validation,
+prose/narrative review, remediation tracking, and final audit. Built for data
+science, analytics, and reporting projects but works for any project type.
 
-A complete phase-gated development workflow using Claude Code's subagent system. Six specialized agents handle planning, code review, data/analysis validation, prose/narrative review, remediation tracking, and final audit. Built for data science, analytics, and reporting projects but works for any project type.
+What it adds over v1:
 
-**What it adds over v1:**
+- **Automated phase prompting** — Claude Code tells you where you are and what
+  comes next at every phase boundary, including after session restarts and
+  context compaction
+- **Dedicated review agents** — separate code quality, data/analysis
+  correctness, and prose/narrative reviews with structured findings
+- **Data science validation layer** — checks aggregation logic, join
+  integrity, metric definitions, chart-data alignment; traces summary numbers
+  back to source data
+- **Remediation tracking** — consolidates review findings into a single
+  prioritized checklist with resolution status
+- **Scope change protocol** — plan amendments are logged; reviews check
+  against the current spec
+- **Cross-model scope review** — optional independent plan validation by a
+  second LLM (e.g., Gemini) before building
 
-- **Automated phase prompting** — Claude Code tells you where you are and what comes next at every phase boundary, including after session restarts and context compaction
-- **Dedicated review agents** — separate code quality, data/analysis correctness, and prose/narrative reviews run as distinct phases with structured findings
-- **Data science validation layer** — checks aggregation logic, join integrity, metric definitions, chart-data alignment, and traces summary numbers back to source data
-- **Remediation tracking** — consolidates all review findings into a single prioritized checklist with resolution status
-- **Scope change protocol** — amendments to the plan are logged, and all reviews check against the current spec
-- **Cross-model scope review** — optional step to send the project plan to a second LLM (e.g., Gemini) for independent validation before building
-
-**Phase flow:**
+Phase flow:
 
 ```
 PLAN → BUILD → CODE REVIEW → DATA REVIEW → PROSE REVIEW → REMEDIATE → AUDIT → COMMIT
@@ -49,14 +72,32 @@ PLAN → BUILD → CODE REVIEW → DATA REVIEW → PROSE REVIEW → REMEDIATE �
                                   (loop if needed)
 ```
 
-**Best for:** Data science, analytics, reporting, and any project where analytical correctness and narrative quality matter as much as code quality.
+**Setup:** see `repo-update/v2-phase-gated-agent-workflow/README.md` — you
+drop its `.claude/` directory (workflow definition + agent files) into your
+project root.
 
-**Setup:** See `v2-phase-gated-agent-workflow/README.md`
+## Tech stack
+
+Plain Markdown throughout: slash-command prompt files, agent definitions, and
+state-file templates for Claude Code. No code, no dependencies.
+
+## Project structure
+
+- `workflow-package/` — v1: `slash-commands/`, `templates/` (CLAUDE.md,
+  PLAN.md, HANDOFF.md, DECISIONS.md, FAILURES.md, src/tests variants),
+  `reference/` (chat project instructions, confidence prompt), START-HERE
+  and quick-start guides
+- `repo-update/` — staged repo README update plus
+  `v2-phase-gated-agent-workflow/` (v2 documentation)
+- `AUDIT.md`, `PLAN.md`, `DECISIONS.md`, `HANDOFF.md` — this repo's own
+  workflow state files
 
 ## Origin
 
-Built by Shawn Phillips for solo portfolio and consulting work — data analysis, reporting, visualization, data hygiene audits, and adjacent projects. Distilled from working in Claude Code across multiple projects.
+Built by Shawn Phillips for solo portfolio and consulting work — data
+analysis, reporting, visualization, data hygiene audits, and adjacent
+projects. Distilled from working in Claude Code across multiple projects.
 
 ## License
 
-MIT
+MIT — see [LICENSE](LICENSE).
