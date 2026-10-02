@@ -140,6 +140,9 @@ Files created:
     wrap.md          — /wrap: end-of-session protocol
     improve.md       — /improve: review and improve the project
     commands.md      — /commands: show all available commands
+    pre-ship.md      — /pre-ship: shipping checklist
+    clarify.md       — /clarify: interview until the idea is clear
+    decompose.md     — /decompose: break a task into testable steps
     init.md          — /init: this command
 ```
 

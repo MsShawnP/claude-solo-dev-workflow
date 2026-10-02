@@ -204,6 +204,8 @@ workflow-package/
 │   ├── improve.md                       (/improve — audit and fix)
 │   ├── commands.md                      (/commands — quick reference)
 │   ├── pre-ship.md                      (/pre-ship — shipping checklist)
+│   ├── clarify.md                       (/clarify — interview until clear)
+│   ├── decompose.md                     (/decompose — split into testable steps)
 │   ├── office-hours.md                  (/office-hours — challenge idea)
 │   ├── plan-ceo-review.md              (/plan-ceo-review — product gate)
 │   ├── plan-eng-review.md              (/plan-eng-review — arch gate)
