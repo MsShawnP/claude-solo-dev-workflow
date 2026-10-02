@@ -15,12 +15,11 @@ description: Interview user until 95% confident about what they actually want
    place and cause a mess with worktrees and folders.
 
    What to do:
-   - If this is a NEW project: run /init first (it sets up
-     the repo and workflow files for you).
+   - If this is a NEW idea: run `git init` here, then re-run
+     /clarify. /clarify comes before /init in the workflow;
+     /init scaffolds the project once the idea is clear.
    - If the project exists elsewhere: navigate to that
      directory and run /clarify again.
-   - If you just need a bare repo here: run `git init` first,
-     then re-run /clarify.
    ```
 
    Do NOT proceed with the interview. Do NOT create any files.
